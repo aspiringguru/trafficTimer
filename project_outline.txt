@@ -1,0 +1,18 @@
+routes_table
+
+CREATE TABLE IF NOT EXISTS routes (
+routeID INTEGER PRIMARY KEY,
+StartAddress TEXT NOT NULL,
+EndAddress TEXT NOT NULL
+);
+
+
+#table routeTimes has foreign key in table routes
+#new entry for every new time recorded to travel the route 
+CREATE TABLE IF NOT EXISTS routeTimes (
+timeRouteID INTEGER PRIMARY KEY,
+startTime STRING  NOT NULL,
+totDistance INTEGER NOT NULL,
+totDuration INTEGER NOT NULL,
+FOREIGN KEY (time_routeID) REFERENCES routes (routeID)
+);

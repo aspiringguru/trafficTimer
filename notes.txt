@@ -1,0 +1,15 @@
+
+
+functionality to design.
+
+- create database if not already
+- load database
+- load new routes from csv file if not already
+- form for user to add routes.
+- store use input routes in database table.
+
+- set easily configured schedule to get travel times from google.
+- run scheduled requests, store results in database
+- produce charts showing change in travel time over day
+- tweet charts
+- tweet alerts showing major change in travel times

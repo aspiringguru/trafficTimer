@@ -5,8 +5,6 @@ from datetime import datetime
 from config import *
 
 
-database = "D:\\2018_working\\coding\\googleMapsStreetview\\google_maps_data.db"
-
 def create_connection(db_file):
     """ create a database connection to the SQLite database
         specified by db_file
@@ -45,10 +43,9 @@ def select_data(conn, sql):
     cur = conn.cursor()
     cur.execute(sql)
     rows = cur.fetchall()
-    for row in rows:
-        print(row)
+    #for row in rows:
+    #    print(row)
     return rows
-    #return data as dataframe??
 
 
 def create_route(conn, route):
@@ -92,8 +89,8 @@ def main():
     sql_select_routes = """SELECT * FROM routes;"""
 
     # create a database connection
-    print("opening database file : ", database)
-    conn = sqlite3.connect(database)
+    print("opening database file : ", DATABASE_FILE)
+    conn = sqlite3.connect(DATABASE_FILE)
     print("database opened.")
     if conn is not None:
         # create projects table
@@ -116,7 +113,7 @@ def main():
         gmaps = googlemaps.Client(key=API_KEY)
         for i in range(len(routes)):
             now = datetime.now()
-            print("gettiing directions from "+routes[i][1] +" to "+ routes[i][2])
+            print("getting directions from "+routes[i][1] +" to "+ routes[i][2])
             directions_result = gmaps.directions(routes[i][1],
                                                  routes[i][2],
                                                  mode="driving",
