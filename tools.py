@@ -2,7 +2,6 @@ import sqlite3
 import sys
 import googlemaps
 from datetime import datetime
-from config import *
 import pandas as pd
 import time
 
@@ -37,13 +36,28 @@ def create_table(conn, create_table_sql):
 
 def select_data(conn, sql):
     """
-    Query all rows in the tasks table
+    execute the sql
     :param conn: the Connection object
     :return:
     """
     print("method select_data called with sql:", sql)
     cur = conn.cursor()
     cur.execute(sql)
+    rows = cur.fetchall()
+    #for row in rows:
+    #    print(row)
+    return rows
+
+def select_data_extended(conn, sql, params):
+    """
+    execute the sql
+    :param conn: the Connection object
+    :return:
+    """
+    print("method select_data called with sql:\n", sql)
+    print("params:\n", params)
+    cur = conn.cursor()
+    cur.execute(sql, params)
     rows = cur.fetchall()
     #for row in rows:
     #    print(row)
