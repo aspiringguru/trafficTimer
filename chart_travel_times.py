@@ -6,6 +6,11 @@ import matplotlib.pyplot as plt
 from datetime import datetime
 import numpy as np
 
+#NB: needed upgrade from anaconda default version
+#pip list | findstr matplotlib
+#pip install --upgrade matplotlib
+#upgrade from anaconda default version 3.0.3 to 3.1.1
+
 #this below fixes warning message.
 from pandas.plotting import register_matplotlib_converters
 register_matplotlib_converters()
@@ -48,6 +53,8 @@ def main():
         plt.xticks(rotation=45, ha='right')
         plt.xticks(np.arange(min(times), max(times), step=xticksStepSize))
         plt.title('Trip time from \n' + params[0] +"\n to "+ params[1])
+        #save figure before plotting.
+        #plt.savefig('test.png')
         plt.show()
 
 
